@@ -4,7 +4,7 @@ export default function Accordian (props){
     const [active,setActive]=useState(true)
 
     return(
-        <div className="accordian" style={{border:"2px solid red"}}>
+        <div className="accordian" style={{border:"2px solid red"}} onClick={()=>setActive(!active)}>
             <div className="header">
                 {props.content.title}
             </div>
