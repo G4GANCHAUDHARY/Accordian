@@ -31,13 +31,13 @@ function App() {
     <div className="App" style={{border:"2px solid black"}}>
       {data.map((Acc,index)=>{
         return (
-          <div className="accordian" style={{border:"2px solid red"}} onClick={()=>changeState(index)}>
+          <div className="accordian" style={{border:"2px solid red" ,display:"flex",flexDirection:"row"}} onClick={()=>changeState(index)}>
             <div className="header">
                 {Acc.title}
             </div>
-            {active[index] && <div className="content">
-                {Acc.body}
-            </div>}
+            <div className="content">
+            {active[index] && <p>{Acc.body}</p>}
+            </div>
         </div>
         )
       })}
