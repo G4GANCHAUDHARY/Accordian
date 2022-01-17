@@ -1,44 +1,16 @@
 import './App.css';
 import data from './data/data';
-// import Accordian from './components/accordian';
-import { useState,useEffect } from 'react';
+import Accordian from './components/accordian';
+// import { useState,useEffect } from 'react';
 
 function App() {
-  const [active,setActive]=useState([]);
-
-  useEffect(()=>{
-    const array=[];
-    for (let i=0;i<data.length;i++){
-      array.push(false)
-    }
-    setActive(array)
-  },[])
-
-  const changeState=(index)=>{
-    const array=[];
-    for (let i=0;i<data.length;i++){
-      if (i===index){
-        array.push(!active[index])
-      } else {
-        array.push(false)
-      }
-    }
-    setActive(array);
-  }
 
 
   return (
     <div className="App" style={{border:"2px solid black"}}>
-      {data.map((Acc,index)=>{
+      {data.map((Acc)=>{
         return (
-          <div className="accordian" style={{border:"2px solid red" ,display:"flex",flexDirection:"row"}} onClick={()=>changeState(index)}>
-            <div className="header">
-                {Acc.title}
-            </div>
-            <div className="content">
-            {active[index] && <p>{Acc.body}</p>}
-            </div>
-        </div>
+          <Accordian content={Acc} />
         )
       })}
     </div>
@@ -46,3 +18,34 @@ function App() {
 }
 
 export default App;
+
+
+// const [active,setActive]=useState([]);
+
+  // useEffect(()=>{
+  //   const array=[];
+  //   for (let i=0;i<data.length;i++){
+  //     array.push(false)
+  //   }
+  //   setActive(array)
+  // },[])
+
+  // const changeState=(index)=>{
+  //   const array=[];
+  //   for (let i=0;i<data.length;i++){
+  //     if (i===index){
+  //       array.push(!active[index])
+  //     } else {
+  //       array.push(false)
+  //     }
+  //   }
+  //   setActive(array);
+  // }
+{/* <div className="accordian" style={{border:"2px solid red" ,display:"flex",flexDirection:"row"}} onClick={()=>changeState(index)}>
+            <div className="header">
+                {Acc.title}
+            </div>
+            <div className="content">
+            {active[index] && <p>{Acc.body}</p>}
+            </div>
+        </div> */}
